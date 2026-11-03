@@ -1,18 +1,27 @@
-# COMP3020 HW2 — MNIST, Section 6
+# COMP3020 HW2 — MNIST Classification
 
-File nộp bài duy nhất: **`mnist_assignment.py`**. Phần đầu giữ nguyên toàn bộ đoạn tải/chia dữ liệu của đề. Các file trong `results/` là bằng chứng chạy và tài liệu để thảo luận, không phải các file Python cần nộp thêm.
+This repository implements Section 6 of the assignment: manual cross-validation, model selection, and hand-crafted feature engineering for MNIST.
 
-**English assignment report:** [discussion_en.md](results/launches/20261103T115939_full_661/run_20261103T120001_917778Z_full_667/discussion_en.md), including experimental decisions, feature definitions, analysis, final test accuracy, and all 75 fold scores. Code comments and experiment-generated `report.md` are also in English.
+**Final test accuracy: 97.73% (9,773/10,000), exceeding the 96% target.** The selected model is an RBF SVC with `C=30`, `gamma="scale"`, and 784-dimensional deskewed features. Its mean five-fold cross-validation accuracy is **97.58%**.
 
-## Cài đặt và chạy
+## Code and report
 
-Python 3.12; các phiên bản hiện có trong môi trường:
+- **Single-file implementation:** [mnist_assignment.py](mnist_assignment.py). The assignment's original loading and splitting code is preserved at the beginning; all implementation follows it.
+- **English assignment report:** [discussion_en.md](results/launches/20261103T115939_full_661/run_20261103T120001_917778Z_full_667/discussion_en.md), including methods, design decisions, feature definitions, analysis, final test results, and all 75 fold scores.
+- **Results guide:** [results/README.md](results/README.md).
+- **Original assignment:** [assignment_original.txt](results/validation/assignment_original.txt).
+
+Only `mnist_assignment.py` is the implementation file for submission. Files under `results/` preserve experimental evidence and supporting analysis.
+
+## Installation and execution
+
+The experiment was run with Python 3.12 and these dependency versions:
 
 ```bash
 python3 -m pip install numpy==2.3.5 scipy==1.17.0 scikit-learn==1.8.0 pandas==2.2.3 joblib==1.5.3 threadpoolctl==3.6.0
 ```
 
-Chạy từ `/workspace/COMP3020_HW2_V202401391`. OpenML cần quyền truy cập mạng ở lần tải đầu; sklearn sẽ cache dữ liệu. Lệnh dưới lưu cả lỗi tải dữ liệu xảy ra **trước** khi đoạn code bổ sung được thực thi:
+Run the following Bash commands from the repository root. OpenML requires network access on the first run; scikit-learn caches the downloaded dataset. This launcher also records download errors that occur before the appended implementation executes.
 
 ```bash
 mkdir -p results/launches
@@ -24,54 +33,71 @@ status=${PIPESTATUS[0]}
 echo "$status" > "$launch/exit_code.txt"
 ```
 
-Để kiểm tra luồng chạy nhanh, thêm `--smoke` vào lệnh Python: chỉ dùng 300 ảnh từ tập train, vẫn chạy đầy đủ 75 lượt fit CV, **không đánh giá test**. Không dùng điểm smoke để báo cáo bài tập.
+For a quick workflow check, add `--smoke` to the Python command. Smoke mode uses 300 training images, performs all 75 CV fits, and **does not evaluate the test set**. Smoke scores are not assignment results.
 
-Mỗi lần chạy tạo thư mục mới, không ghi đè kết quả cũ. Các mốc thời gian trong tên thư mục là UTC. Không cần chạy dịch vụ nền hay tạo Git worktree.
+Each run creates a unique directory without overwriting previous results. Directory timestamps use UTC. No background service or additional Git worktree is required.
 
-## Cách đáp ứng criteria
+## Assignment requirements
 
-|Yêu cầu|Triển khai|
+|Requirement|Implementation|
 |---|---|
-|10.000 mẫu train đầu, 10.000 mẫu test cuối|Giữ nguyên đoạn mã đề; full run kiểm tra shape 70.000 × 784|
-|Tự viết 5/10-fold CV|Vòng lặp 5-fold `StratifiedKFold`; tạo estimator mới mỗi fold; không dùng lớp tìm kiếm tự động|
-|Ít nhất 3 estimator, mỗi loại 3 cấu hình|RBF SVC: C=3/10/30; KNN: k=3/5/7; ExtraTrees: min_samples_leaf=1/2/4|
-|Điểm từng fold và mean cho mọi cấu hình|`fold_scores.csv`, `cv_candidates.json`, `report.md`|
-|Hai phép biến đổi tự viết|Pooling 2×2 → 196 chiều; deskew bằng moment và nội suy → 784 chiều|
-|Cùng fold khi so sánh feature|Tái sử dụng cùng danh sách index; lưu `cv_splits.npz`|
-|Dùng estimator tốt nhất warmup|Chọn family theo mean CV raw, tune lại 3 cấu hình cho từng representation|
-|Không test leakage|Feature chỉ phụ thuộc từng ảnh; chuẩn hóa hằng số /255; gamma của SVC được fit riêng mỗi fold|
-|Refit toàn bộ train; test một lần|Chốt và lưu lựa chọn trước khi transform/predict test; một lệnh predict test duy nhất|
-|Reproducibility|Seed 202401391, version, checksum dữ liệu train/source, snapshot code, split index|
-|Giải thích lựa chọn và quan sát|Comment chi tiết trong code; báo cáo tự sinh dựa trên điểm thực tế|
-|Accuracy test ≥96%|Mục tiêu cần đo bằng full run; chương trình ghi rõ đạt/chưa đạt, không tự điều chỉnh theo test|
+|First 10,000 training examples and final 10,000 test examples|Preserves the supplied split; verifies the full dataset shape of 70,000 × 784|
+|Manual 5- or 10-fold CV|Five-fold `StratifiedKFold` with explicit loops and a fresh estimator per fold; no automatic search classes|
+|At least three estimators, each with three configurations|RBF SVC: C=3/10/30; KNN: k=3/5/7; ExtraTrees: min_samples_leaf=1/2/4|
+|Every fold accuracy and mean for every configuration|Saved in `fold_scores.csv`, `cv_candidates.json`, and the reports|
+|Two manually implemented feature transformations|NumPy 2×2 average pooling → 196 features; moment-based deskewing and interpolation → 784 features|
+|Same folds for representation comparisons|Reuses identical index pairs, saved in `cv_splits.npz`|
+|Use the best warmup estimator|Selects the family using raw-pixel mean CV accuracy, then retunes three configurations per representation|
+|No test leakage|Image-local transformations, constant scaling by 1/255, and SVC gamma computed within each training fold|
+|Refit on all training examples and test once|Saves the CV selection before transforming or predicting the test set; one final test prediction pass|
+|Reproducibility|Seed 202401391, dependency versions, training/source checksums, source snapshot, and fold indices|
+|Explain decisions and observations|Detailed source comments and English report based on saved results|
+|At least 96% test accuracy|Achieved 97.73%; no retuning based on the test score|
 
-Đề có hai chỉ dẫn về test: warmup yêu cầu test model thắng, nhưng phần sau yêu cầu chỉ đánh giá test **một lần** cho model cuối. Code tuân theo chỉ dẫn sau: so sánh warmup/feature bằng CV và chỉ tính test cho lựa chọn cuối. Không báo điểm test cho từng representation.
+The warmup requests a test evaluation, while the later instructions require evaluating the final selected model on the test set **only once**. The implementation follows the latter restriction: all warmup and feature comparisons use CV, and only the final selected configuration receives a test evaluation.
 
-Tổng cộng **75 lượt fit CV**: 45 cho warmup (3 × 3 × 5), thêm 30 cho feature engineering (2 × 3 × 5). Điểm raw của family thắng được tái sử dụng. Full run thêm một lượt fit trên 10.000 mẫu train và một lượt predict test. SVC có thể tốn vài phút tùy máy; code giới hạn cache 512 MB và mặc định tối đa 4 luồng cho các thư viện hỗ trợ.
+There are **75 CV fits**: 45 for warmup (3 × 3 × 5) and 30 for feature engineering (2 × 3 × 5). Raw scores for the winning family are reused. A full run adds one fit on all 10,000 training examples and one test prediction pass. SVC has a 512 MB cache; supported libraries use at most four threads by default.
 
-## Nội dung kết quả
+## Results
 
-- `metadata.json`: grid, seed, phiên bản, checksum, số mẫu và số luồng.
-- `cv_splits.npz`: index train/validation của 5 fold, theo thứ tự tập train dùng trong run.
-- `fold_scores.csv`: điểm và thời gian từng fold, flush ngay sau mỗi fold.
-- `cv_candidates.json`: kết quả các cấu hình đã hoàn tất; giữ được tiến độ nếu bước sau lỗi.
-- `selection_before_test.json`: quyết định đã chốt bằng CV trước test.
-- `summary.json`, `report.md`: toàn bộ điểm CV, model tốt nhất, phân tích feature và điểm test nếu là full run.
-- `test_predictions.csv`: index OpenML 60000–69999, nhãn thật/dự đoán và đúng/sai.
-- `confusion_matrix.csv`: hàng là nhãn thật, cột là dự đoán, thứ tự 0–9.
-- `final_model.joblib`: estimator đã refit và tên representation. Khi dùng lại phải chạy đúng chuẩn hóa và hàm feature trong source; chỉ load file joblib đáng tin cậy.
-- `source_snapshot.py`, `run.log`, `status.json`: code chính xác của run, log, trạng thái và thời gian chạy.
+|Representation|Features|Best SVC C|Mean CV accuracy|
+|---|---:|---:|---:|
+|Raw pixels|784|10|96.84%|
+|2×2 average pooling|196|30|96.98%|
+|Moment-based deskewing|784|30|**97.58%**|
 
-Sau khi có full run, dùng `report.md` để viết phần thảo luận; đối chiếu thêm confusion matrix và các dự đoán sai. So sánh feature bằng **CV**, không chọn model dựa trên test. SD giữa các fold không phải confidence interval; CV dùng để lựa chọn có thể lạc quan hơn hiệu năng thực tế.
+The full MNIST run started on November 3, 2026, at 19:00 ICT (UTC+7) and completed in approximately 188 seconds after loading the data. The final configuration achieved **97.73% test accuracy**. All 75 fold records and saved artifacts were checked for consistency, and the implementation matches the run's source snapshot.
 
-## Trạng thái kiểm chứng hiện tại
+The official run is stored under:
 
-Sau khi người dùng cập nhật mạng và xuất bản môi trường, đã tải được MNIST và hoàn tất full run ngày 03/11/2026 (19:00 giờ Việt Nam). Kết quả: **SVC RBF C=30, gamma="scale", deskew 784 chiều; mean CV 97,58%; test accuracy 97,73% (9.773/10.000), vượt ngưỡng 96%**. Mô hình cuối được chọn trước khi đánh giá test đúng một lần. 75 lượt fit CV và các artifact đã được đối chiếu thành công; source hiện tại khớp snapshot của run.
+```text
+results/launches/20261103T115939_full_661/
+└── run_20261103T120001_917778Z_full_667/
+```
 
-Kết quả chính thức: [report.md](results/launches/20261103T115939_full_661/run_20261103T120001_917778Z_full_667/report.md), [thảo luận tiếng Việt](results/launches/20261103T115939_full_661/run_20261103T120001_917778Z_full_667/discussion_vi.md). Đường dẫn run gần nhất được ghi tại `results/latest_mnist_run.txt`. Có biểu đồ so sánh CV và confusion matrix ở cả PNG/SVG. Thời gian sau khi tải dữ liệu: khoảng 188 giây.
+Its path is also recorded in [results/latest_mnist_run.txt](results/latest_mnist_run.txt). CV comparison and confusion-matrix figures are available as PNG and SVG files. Further analysis reads saved outputs without refitting models or predicting test examples again.
 
-Lỗi HTTP 403 của lần tải đầu được giữ trong `results/launches/smoke_20261103T113831Z.log` để lưu lịch sử. Không thay đổi hay xuất bản lại cấu hình môi trường trong lần chạy thành công này.
+## Saved artifacts
 
-Các kiểm tra offline trước đó dùng `sklearn.datasets.load_digits`, phóng ảnh và padding thành 28×28, được lưu riêng trong `results/validation_synthetic/`. Đây là **dữ liệu kiểm tra tích hợp, không phải MNIST**, không cung cấp accuracy của bài tập. `results/validation/validation_summary.json` ghi các kiểm tra đã hoàn thành. Báo cáo bài tập sử dụng full run MNIST nêu trên.
+|File|Contents|
+|---|---|
+|`metadata.json`|Hyperparameter grids, seed, versions, checksums, sample counts, and thread count|
+|`cv_splits.npz`|Training and validation indices for the five shared folds|
+|`fold_scores.csv`|Accuracy and timing for every fold, flushed immediately after each fold|
+|`cv_candidates.json`|Completed candidate results, preserving progress if a later step fails|
+|`selection_before_test.json`|Configuration selected using CV before test evaluation|
+|`summary.json`, `report.md`|CV scores, selected configuration, feature analysis, and final test results|
+|`discussion_en.md`|Detailed English submission report and all fold scores|
+|`test_predictions.csv`|OpenML indices 60000–69999, true labels, predictions, and correctness|
+|`confusion_matrix.csv`|Rows are true labels; columns are predictions; digit order is 0–9|
+|`final_model.joblib`|Refitted estimator and representation name; reuse requires the source's scaling and feature transformation|
+|`source_snapshot.py`, `run.log`, `status.json`|Exact run source, execution log, completion status, and elapsed time|
+|`artifact_audit.json`|Consistency checks on saved scores, splits, predictions, and source checksum|
 
-Nhánh refit/predict và ghi artifact cũng đã được kiểm tra riêng với hai ảnh nhân tạo, lưu trong `results/validation_final_artifacts/`. Các điểm CV trong kiểm tra này được stub để cô lập nhánh xuất kết quả; accuracy của nó không được dùng cho bài tập. Xem `results/README.md` để phân biệt rõ từng loại run.
+Feature comparisons use **cross-validation**, not test scores. Fold standard deviations are not confidence intervals, and selection using CV can make the winning CV score optimistic. Only load trusted joblib files.
+
+## Historical validation runs
+
+The initial MNIST download failed with HTTP 403 before network access was updated. Its traceback remains in `results/launches/smoke_20261103T113831Z.log`.
+
+Earlier offline integration checks used resized and padded `sklearn.datasets.load_digits` images and are stored in `results/validation_synthetic/`. These are **not MNIST results**. Separate output-plumbing checks used two artificial images and stubbed CV scores in `results/validation_final_artifacts/`; their accuracy is not an assignment performance result. The assignment report uses only the completed full MNIST run above.

@@ -1,24 +1,24 @@
-# Kết quả các lần chạy
+# Experiment Results
 
-**Đã hoàn tất full run MNIST thật: test accuracy 97,73%, vượt ngưỡng 96%.**
+**The full MNIST experiment completed successfully: 97.73% test accuracy, exceeding the 96% target.**
 
-Run chính thức: `launches/20261103T115939_full_661/run_20261103T120001_917778Z_full_667/`.
+Official run: `launches/20261103T115939_full_661/run_20261103T120001_917778Z_full_667/`.
 
 - [English submission report: methods, results, discussion, and all fold scores](launches/20261103T115939_full_661/run_20261103T120001_917778Z_full_667/discussion_en.md).
-- [Báo cáo đầy đủ từng fold](launches/20261103T115939_full_661/run_20261103T120001_917778Z_full_667/report.md).
-- [Thảo luận tiếng Việt và biểu đồ](launches/20261103T115939_full_661/run_20261103T120001_917778Z_full_667/discussion_vi.md).
-- [Đối chiếu artifact](launches/20261103T115939_full_661/run_20261103T120001_917778Z_full_667/artifact_audit.json): 75 hàng fold, 15 cấu hình, 5 fold dùng chung, 10.000 dự đoán test, checksum source khớp.
+- [Automatically generated report with every fold score](launches/20261103T115939_full_661/run_20261103T120001_917778Z_full_667/report.md).
+- [Artifact audit](launches/20261103T115939_full_661/run_20261103T120001_917778Z_full_667/artifact_audit.json): 75 fold records, 15 configurations, five shared folds, 10,000 test predictions, and matching source checksums.
+- [Optional Vietnamese discussion](launches/20261103T115939_full_661/run_20261103T120001_917778Z_full_667/discussion_vi.md), retained for reference.
 
-Lựa chọn cuối: SVC RBF C=30, gamma="scale", deskew 784 chiều, mean CV 97,58%. Test chỉ được đánh giá một lần sau khi chốt lựa chọn bằng CV. Các bước phân tích sau đó chỉ đọc kết quả đã lưu, không fit/predict lại.
+The final configuration is an RBF SVC with `C=30`, `gamma="scale"`, and 784-dimensional deskewed features. Mean CV accuracy is 97.58%. The test set was evaluated once, after selection using CV. Subsequent analysis only reads saved results; it does not fit or predict again.
 
-|Thư mục|Mục đích|Kết quả|
+|Location|Purpose|Outcome|
 |---|---|---|
-|`launches/20261103T115939_full_661/`|Full run MNIST thật|Hoàn tất, exit code 0; test accuracy 97,73%|
-|`launches/smoke_20261103T113831Z.log`|Lần tải MNIST đầu, trước khi sửa mạng|HTTP 403 tại api.openml.org; giữ nguyên traceback|
-|`validation_synthetic/`|Kiểm tra đầy đủ CV với load_digits phóng/padding thành 28×28|75 lượt fit, 15 cấu hình, cùng 5 fold; không truy cập test|
-|`validation_final_artifacts/`|Kiểm tra riêng nhánh refit và ghi output bằng hai ảnh nhân tạo, **CV scores được stub**|Một fit 10.000 mẫu và một predict 10.000 mẫu; selection được lưu trước predict; CSV/confusion matrix/joblib đọc lại được|
-|`validation/`|Đề gốc, log và harness tái lập các kiểm tra offline|Các kiểm tra offline qua; không thay thế thực nghiệm MNIST|
+|`launches/20261103T115939_full_661/`|Full experiment on MNIST|Completed with exit code 0; test accuracy 97.73%|
+|`launches/smoke_20261103T113831Z.log`|Initial MNIST download before the network update|HTTP 403 from api.openml.org; original traceback retained|
+|`validation_synthetic/`|CV integration checks using resized and padded load_digits images|75 fits, 15 configurations, five shared folds; no test access; not MNIST results|
+|`validation_final_artifacts/`|Checks of refitting and output files using two artificial images and **stubbed CV scores**|One fit and one prediction pass on 10,000 repeated artificial examples; verifies selection ordering and CSV/confusion-matrix/joblib outputs|
+|`validation/`|Original assignment, logs, and offline validation harnesses|Offline checks passed; these do not replace the MNIST experiment|
 
-Điểm 100% trong kiểm tra output là trên **hai ảnh nhân tạo lặp lại**, chỉ dùng để xác minh cách lưu file. Không có ý nghĩa về chất lượng mô hình hoặc tiêu chí accuracy của đề.
+The 100% accuracy in the output-plumbing check comes from **two repeated artificial images**. It only verifies file output behavior and has no relevance to model quality or the assignment's accuracy criterion.
 
-Mỗi full run thật trong tương lai tạo thư mục riêng, lưu source snapshot, cấu hình, điểm từng fold, summary/report, model và dự đoán test. Không ghi đè kết quả trước đó. Xem README ở thư mục gốc để chạy và lưu cả lỗi bootstrap.
+Each experiment creates a separate directory containing its source snapshot, configuration, fold scores, reports, fitted model, and test predictions when applicable. Previous results are not overwritten. See the [main README](../README.md) for installation and launch commands, including how to capture download failures.
