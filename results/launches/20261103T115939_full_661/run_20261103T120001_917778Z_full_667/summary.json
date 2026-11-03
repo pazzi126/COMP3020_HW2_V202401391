@@ -1,0 +1,467 @@
+{
+  "mode": "full",
+  "warmup_best": {
+    "representation": "raw",
+    "family": "SVC",
+    "params": {
+      "C": 10.0,
+      "gamma": "scale",
+      "kernel": "rbf"
+    },
+    "dimension": 784,
+    "fold_accuracies": [
+      0.9755,
+      0.9655,
+      0.977,
+      0.96,
+      0.964
+    ],
+    "mean_cv_accuracy": 0.9684000000000001,
+    "std_cv_accuracy": 0.007461568199782148
+  },
+  "representation_best": {
+    "raw": {
+      "representation": "raw",
+      "family": "SVC",
+      "params": {
+        "C": 10.0,
+        "gamma": "scale",
+        "kernel": "rbf"
+      },
+      "dimension": 784,
+      "fold_accuracies": [
+        0.9755,
+        0.9655,
+        0.977,
+        0.96,
+        0.964
+      ],
+      "mean_cv_accuracy": 0.9684000000000001,
+      "std_cv_accuracy": 0.007461568199782148
+    },
+    "phi1_pooling": {
+      "representation": "phi1_pooling",
+      "family": "SVC",
+      "params": {
+        "C": 30.0,
+        "gamma": "scale",
+        "kernel": "rbf"
+      },
+      "dimension": 196,
+      "fold_accuracies": [
+        0.9745,
+        0.969,
+        0.975,
+        0.9645,
+        0.966
+      ],
+      "mean_cv_accuracy": 0.9698,
+      "std_cv_accuracy": 0.004803644449790183
+    },
+    "phi2_deskew": {
+      "representation": "phi2_deskew",
+      "family": "SVC",
+      "params": {
+        "C": 30.0,
+        "gamma": "scale",
+        "kernel": "rbf"
+      },
+      "dimension": 784,
+      "fold_accuracies": [
+        0.976,
+        0.978,
+        0.979,
+        0.9715,
+        0.9745
+      ],
+      "mean_cv_accuracy": 0.9757999999999999,
+      "std_cv_accuracy": 0.002970690155502566
+    }
+  },
+  "selected": {
+    "representation": "phi2_deskew",
+    "family": "SVC",
+    "params": {
+      "C": 30.0,
+      "gamma": "scale",
+      "kernel": "rbf"
+    },
+    "dimension": 784,
+    "fold_accuracies": [
+      0.976,
+      0.978,
+      0.979,
+      0.9715,
+      0.9745
+    ],
+    "mean_cv_accuracy": 0.9757999999999999,
+    "std_cv_accuracy": 0.002970690155502566
+  },
+  "candidates": [
+    {
+      "representation": "raw",
+      "family": "SVC",
+      "params": {
+        "C": 3.0,
+        "gamma": "scale",
+        "kernel": "rbf"
+      },
+      "dimension": 784,
+      "fold_accuracies": [
+        0.975,
+        0.964,
+        0.9765,
+        0.9595,
+        0.964
+      ],
+      "mean_cv_accuracy": 0.9678000000000001,
+      "std_cv_accuracy": 0.007504998334443526
+    },
+    {
+      "representation": "raw",
+      "family": "SVC",
+      "params": {
+        "C": 10.0,
+        "gamma": "scale",
+        "kernel": "rbf"
+      },
+      "dimension": 784,
+      "fold_accuracies": [
+        0.9755,
+        0.9655,
+        0.977,
+        0.96,
+        0.964
+      ],
+      "mean_cv_accuracy": 0.9684000000000001,
+      "std_cv_accuracy": 0.007461568199782148
+    },
+    {
+      "representation": "raw",
+      "family": "SVC",
+      "params": {
+        "C": 30.0,
+        "gamma": "scale",
+        "kernel": "rbf"
+      },
+      "dimension": 784,
+      "fold_accuracies": [
+        0.9755,
+        0.9655,
+        0.9765,
+        0.9605,
+        0.964
+      ],
+      "mean_cv_accuracy": 0.9684000000000001,
+      "std_cv_accuracy": 0.007179832867135572
+    },
+    {
+      "representation": "raw",
+      "family": "KNN",
+      "params": {
+        "n_neighbors": 3,
+        "weights": "distance",
+        "algorithm": "brute"
+      },
+      "dimension": 784,
+      "fold_accuracies": [
+        0.9515,
+        0.955,
+        0.959,
+        0.9375,
+        0.9415
+      ],
+      "mean_cv_accuracy": 0.9489000000000001,
+      "std_cv_accuracy": 0.009092579392009713
+    },
+    {
+      "representation": "raw",
+      "family": "KNN",
+      "params": {
+        "n_neighbors": 5,
+        "weights": "distance",
+        "algorithm": "brute"
+      },
+      "dimension": 784,
+      "fold_accuracies": [
+        0.9515,
+        0.952,
+        0.959,
+        0.937,
+        0.9425
+      ],
+      "mean_cv_accuracy": 0.9484,
+      "std_cv_accuracy": 0.008655922827752072
+    },
+    {
+      "representation": "raw",
+      "family": "KNN",
+      "params": {
+        "n_neighbors": 7,
+        "weights": "distance",
+        "algorithm": "brute"
+      },
+      "dimension": 784,
+      "fold_accuracies": [
+        0.9525,
+        0.9505,
+        0.956,
+        0.932,
+        0.941
+      ],
+      "mean_cv_accuracy": 0.9464,
+      "std_cv_accuracy": 0.009781359823664584
+    },
+    {
+      "representation": "raw",
+      "family": "ExtraTrees",
+      "params": {
+        "n_estimators": 200,
+        "min_samples_leaf": 1,
+        "max_features": "sqrt"
+      },
+      "dimension": 784,
+      "fold_accuracies": [
+        0.9615,
+        0.9555,
+        0.9545,
+        0.9415,
+        0.9525
+      ],
+      "mean_cv_accuracy": 0.9531000000000001,
+      "std_cv_accuracy": 0.007300684899377598
+    },
+    {
+      "representation": "raw",
+      "family": "ExtraTrees",
+      "params": {
+        "n_estimators": 200,
+        "min_samples_leaf": 2,
+        "max_features": "sqrt"
+      },
+      "dimension": 784,
+      "fold_accuracies": [
+        0.958,
+        0.9515,
+        0.9545,
+        0.938,
+        0.947
+      ],
+      "mean_cv_accuracy": 0.9498,
+      "std_cv_accuracy": 0.007734662242140912
+    },
+    {
+      "representation": "raw",
+      "family": "ExtraTrees",
+      "params": {
+        "n_estimators": 200,
+        "min_samples_leaf": 4,
+        "max_features": "sqrt"
+      },
+      "dimension": 784,
+      "fold_accuracies": [
+        0.9525,
+        0.942,
+        0.9465,
+        0.9315,
+        0.943
+      ],
+      "mean_cv_accuracy": 0.9430999999999999,
+      "std_cv_accuracy": 0.007676262111210126
+    },
+    {
+      "representation": "phi1_pooling",
+      "family": "SVC",
+      "params": {
+        "C": 3.0,
+        "gamma": "scale",
+        "kernel": "rbf"
+      },
+      "dimension": 196,
+      "fold_accuracies": [
+        0.973,
+        0.9705,
+        0.9745,
+        0.9635,
+        0.9635
+      ],
+      "mean_cv_accuracy": 0.969,
+      "std_cv_accuracy": 0.005220153254455269
+    },
+    {
+      "representation": "phi1_pooling",
+      "family": "SVC",
+      "params": {
+        "C": 10.0,
+        "gamma": "scale",
+        "kernel": "rbf"
+      },
+      "dimension": 196,
+      "fold_accuracies": [
+        0.9745,
+        0.9685,
+        0.9745,
+        0.9655,
+        0.965
+      ],
+      "mean_cv_accuracy": 0.9696,
+      "std_cv_accuracy": 0.004669047011971518
+    },
+    {
+      "representation": "phi1_pooling",
+      "family": "SVC",
+      "params": {
+        "C": 30.0,
+        "gamma": "scale",
+        "kernel": "rbf"
+      },
+      "dimension": 196,
+      "fold_accuracies": [
+        0.9745,
+        0.969,
+        0.975,
+        0.9645,
+        0.966
+      ],
+      "mean_cv_accuracy": 0.9698,
+      "std_cv_accuracy": 0.004803644449790183
+    },
+    {
+      "representation": "phi2_deskew",
+      "family": "SVC",
+      "params": {
+        "C": 3.0,
+        "gamma": "scale",
+        "kernel": "rbf"
+      },
+      "dimension": 784,
+      "fold_accuracies": [
+        0.9735,
+        0.976,
+        0.9765,
+        0.9695,
+        0.9745
+      ],
+      "mean_cv_accuracy": 0.974,
+      "std_cv_accuracy": 0.0027838821814150034
+    },
+    {
+      "representation": "phi2_deskew",
+      "family": "SVC",
+      "params": {
+        "C": 10.0,
+        "gamma": "scale",
+        "kernel": "rbf"
+      },
+      "dimension": 784,
+      "fold_accuracies": [
+        0.9755,
+        0.9775,
+        0.9795,
+        0.971,
+        0.975
+      ],
+      "mean_cv_accuracy": 0.9757,
+      "std_cv_accuracy": 0.003174114049620802
+    },
+    {
+      "representation": "phi2_deskew",
+      "family": "SVC",
+      "params": {
+        "C": 30.0,
+        "gamma": "scale",
+        "kernel": "rbf"
+      },
+      "dimension": 784,
+      "fold_accuracies": [
+        0.976,
+        0.978,
+        0.979,
+        0.9715,
+        0.9745
+      ],
+      "mean_cv_accuracy": 0.9757999999999999,
+      "std_cv_accuracy": 0.002970690155502566
+    }
+  ],
+  "refit_seconds": 2.8500091800000007,
+  "test_predict_seconds": 9.82852336800002,
+  "test_accuracy": 0.9773,
+  "test_correct": 9773,
+  "meets_96_percent_target": true,
+  "classification_report": {
+    "0": {
+      "precision": 0.9778672032193159,
+      "recall": 0.9918367346938776,
+      "f1-score": 0.9848024316109423,
+      "support": 980.0
+    },
+    "1": {
+      "precision": 0.9885864793678666,
+      "recall": 0.9920704845814978,
+      "f1-score": 0.990325417766051,
+      "support": 1135.0
+    },
+    "2": {
+      "precision": 0.970106075216972,
+      "recall": 0.9748062015503876,
+      "f1-score": 0.9724504591590141,
+      "support": 1032.0
+    },
+    "3": {
+      "precision": 0.9696969696969697,
+      "recall": 0.9821782178217822,
+      "f1-score": 0.9758976881455976,
+      "support": 1010.0
+    },
+    "4": {
+      "precision": 0.9619238476953907,
+      "recall": 0.9775967413441955,
+      "f1-score": 0.9696969696969697,
+      "support": 982.0
+    },
+    "5": {
+      "precision": 0.985244040862656,
+      "recall": 0.9730941704035875,
+      "f1-score": 0.979131415679639,
+      "support": 892.0
+    },
+    "6": {
+      "precision": 0.9791449426485923,
+      "recall": 0.9801670146137788,
+      "f1-score": 0.9796557120500783,
+      "support": 958.0
+    },
+    "7": {
+      "precision": 0.983284169124877,
+      "recall": 0.9727626459143969,
+      "f1-score": 0.9779951100244498,
+      "support": 1028.0
+    },
+    "8": {
+      "precision": 0.9773895169578622,
+      "recall": 0.9763860369609856,
+      "f1-score": 0.9768875192604006,
+      "support": 974.0
+    },
+    "9": {
+      "precision": 0.9795709908069459,
+      "recall": 0.9504459861248761,
+      "f1-score": 0.9647887323943662,
+      "support": 1009.0
+    },
+    "accuracy": 0.9773,
+    "macro avg": {
+      "precision": 0.9772814235597449,
+      "recall": 0.9771344234009366,
+      "f1-score": 0.9771631455787508,
+      "support": 10000.0
+    },
+    "weighted avg": {
+      "precision": 0.9773547325300566,
+      "recall": 0.9773,
+      "f1-score": 0.9772828338045667,
+      "support": 10000.0
+    }
+  }
+}

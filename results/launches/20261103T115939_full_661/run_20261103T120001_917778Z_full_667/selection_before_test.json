@@ -1,0 +1,387 @@
+{
+  "mode": "full",
+  "warmup_best": {
+    "representation": "raw",
+    "family": "SVC",
+    "params": {
+      "C": 10.0,
+      "gamma": "scale",
+      "kernel": "rbf"
+    },
+    "dimension": 784,
+    "fold_accuracies": [
+      0.9755,
+      0.9655,
+      0.977,
+      0.96,
+      0.964
+    ],
+    "mean_cv_accuracy": 0.9684000000000001,
+    "std_cv_accuracy": 0.007461568199782148
+  },
+  "representation_best": {
+    "raw": {
+      "representation": "raw",
+      "family": "SVC",
+      "params": {
+        "C": 10.0,
+        "gamma": "scale",
+        "kernel": "rbf"
+      },
+      "dimension": 784,
+      "fold_accuracies": [
+        0.9755,
+        0.9655,
+        0.977,
+        0.96,
+        0.964
+      ],
+      "mean_cv_accuracy": 0.9684000000000001,
+      "std_cv_accuracy": 0.007461568199782148
+    },
+    "phi1_pooling": {
+      "representation": "phi1_pooling",
+      "family": "SVC",
+      "params": {
+        "C": 30.0,
+        "gamma": "scale",
+        "kernel": "rbf"
+      },
+      "dimension": 196,
+      "fold_accuracies": [
+        0.9745,
+        0.969,
+        0.975,
+        0.9645,
+        0.966
+      ],
+      "mean_cv_accuracy": 0.9698,
+      "std_cv_accuracy": 0.004803644449790183
+    },
+    "phi2_deskew": {
+      "representation": "phi2_deskew",
+      "family": "SVC",
+      "params": {
+        "C": 30.0,
+        "gamma": "scale",
+        "kernel": "rbf"
+      },
+      "dimension": 784,
+      "fold_accuracies": [
+        0.976,
+        0.978,
+        0.979,
+        0.9715,
+        0.9745
+      ],
+      "mean_cv_accuracy": 0.9757999999999999,
+      "std_cv_accuracy": 0.002970690155502566
+    }
+  },
+  "selected": {
+    "representation": "phi2_deskew",
+    "family": "SVC",
+    "params": {
+      "C": 30.0,
+      "gamma": "scale",
+      "kernel": "rbf"
+    },
+    "dimension": 784,
+    "fold_accuracies": [
+      0.976,
+      0.978,
+      0.979,
+      0.9715,
+      0.9745
+    ],
+    "mean_cv_accuracy": 0.9757999999999999,
+    "std_cv_accuracy": 0.002970690155502566
+  },
+  "candidates": [
+    {
+      "representation": "raw",
+      "family": "SVC",
+      "params": {
+        "C": 3.0,
+        "gamma": "scale",
+        "kernel": "rbf"
+      },
+      "dimension": 784,
+      "fold_accuracies": [
+        0.975,
+        0.964,
+        0.9765,
+        0.9595,
+        0.964
+      ],
+      "mean_cv_accuracy": 0.9678000000000001,
+      "std_cv_accuracy": 0.007504998334443526
+    },
+    {
+      "representation": "raw",
+      "family": "SVC",
+      "params": {
+        "C": 10.0,
+        "gamma": "scale",
+        "kernel": "rbf"
+      },
+      "dimension": 784,
+      "fold_accuracies": [
+        0.9755,
+        0.9655,
+        0.977,
+        0.96,
+        0.964
+      ],
+      "mean_cv_accuracy": 0.9684000000000001,
+      "std_cv_accuracy": 0.007461568199782148
+    },
+    {
+      "representation": "raw",
+      "family": "SVC",
+      "params": {
+        "C": 30.0,
+        "gamma": "scale",
+        "kernel": "rbf"
+      },
+      "dimension": 784,
+      "fold_accuracies": [
+        0.9755,
+        0.9655,
+        0.9765,
+        0.9605,
+        0.964
+      ],
+      "mean_cv_accuracy": 0.9684000000000001,
+      "std_cv_accuracy": 0.007179832867135572
+    },
+    {
+      "representation": "raw",
+      "family": "KNN",
+      "params": {
+        "n_neighbors": 3,
+        "weights": "distance",
+        "algorithm": "brute"
+      },
+      "dimension": 784,
+      "fold_accuracies": [
+        0.9515,
+        0.955,
+        0.959,
+        0.9375,
+        0.9415
+      ],
+      "mean_cv_accuracy": 0.9489000000000001,
+      "std_cv_accuracy": 0.009092579392009713
+    },
+    {
+      "representation": "raw",
+      "family": "KNN",
+      "params": {
+        "n_neighbors": 5,
+        "weights": "distance",
+        "algorithm": "brute"
+      },
+      "dimension": 784,
+      "fold_accuracies": [
+        0.9515,
+        0.952,
+        0.959,
+        0.937,
+        0.9425
+      ],
+      "mean_cv_accuracy": 0.9484,
+      "std_cv_accuracy": 0.008655922827752072
+    },
+    {
+      "representation": "raw",
+      "family": "KNN",
+      "params": {
+        "n_neighbors": 7,
+        "weights": "distance",
+        "algorithm": "brute"
+      },
+      "dimension": 784,
+      "fold_accuracies": [
+        0.9525,
+        0.9505,
+        0.956,
+        0.932,
+        0.941
+      ],
+      "mean_cv_accuracy": 0.9464,
+      "std_cv_accuracy": 0.009781359823664584
+    },
+    {
+      "representation": "raw",
+      "family": "ExtraTrees",
+      "params": {
+        "n_estimators": 200,
+        "min_samples_leaf": 1,
+        "max_features": "sqrt"
+      },
+      "dimension": 784,
+      "fold_accuracies": [
+        0.9615,
+        0.9555,
+        0.9545,
+        0.9415,
+        0.9525
+      ],
+      "mean_cv_accuracy": 0.9531000000000001,
+      "std_cv_accuracy": 0.007300684899377598
+    },
+    {
+      "representation": "raw",
+      "family": "ExtraTrees",
+      "params": {
+        "n_estimators": 200,
+        "min_samples_leaf": 2,
+        "max_features": "sqrt"
+      },
+      "dimension": 784,
+      "fold_accuracies": [
+        0.958,
+        0.9515,
+        0.9545,
+        0.938,
+        0.947
+      ],
+      "mean_cv_accuracy": 0.9498,
+      "std_cv_accuracy": 0.007734662242140912
+    },
+    {
+      "representation": "raw",
+      "family": "ExtraTrees",
+      "params": {
+        "n_estimators": 200,
+        "min_samples_leaf": 4,
+        "max_features": "sqrt"
+      },
+      "dimension": 784,
+      "fold_accuracies": [
+        0.9525,
+        0.942,
+        0.9465,
+        0.9315,
+        0.943
+      ],
+      "mean_cv_accuracy": 0.9430999999999999,
+      "std_cv_accuracy": 0.007676262111210126
+    },
+    {
+      "representation": "phi1_pooling",
+      "family": "SVC",
+      "params": {
+        "C": 3.0,
+        "gamma": "scale",
+        "kernel": "rbf"
+      },
+      "dimension": 196,
+      "fold_accuracies": [
+        0.973,
+        0.9705,
+        0.9745,
+        0.9635,
+        0.9635
+      ],
+      "mean_cv_accuracy": 0.969,
+      "std_cv_accuracy": 0.005220153254455269
+    },
+    {
+      "representation": "phi1_pooling",
+      "family": "SVC",
+      "params": {
+        "C": 10.0,
+        "gamma": "scale",
+        "kernel": "rbf"
+      },
+      "dimension": 196,
+      "fold_accuracies": [
+        0.9745,
+        0.9685,
+        0.9745,
+        0.9655,
+        0.965
+      ],
+      "mean_cv_accuracy": 0.9696,
+      "std_cv_accuracy": 0.004669047011971518
+    },
+    {
+      "representation": "phi1_pooling",
+      "family": "SVC",
+      "params": {
+        "C": 30.0,
+        "gamma": "scale",
+        "kernel": "rbf"
+      },
+      "dimension": 196,
+      "fold_accuracies": [
+        0.9745,
+        0.969,
+        0.975,
+        0.9645,
+        0.966
+      ],
+      "mean_cv_accuracy": 0.9698,
+      "std_cv_accuracy": 0.004803644449790183
+    },
+    {
+      "representation": "phi2_deskew",
+      "family": "SVC",
+      "params": {
+        "C": 3.0,
+        "gamma": "scale",
+        "kernel": "rbf"
+      },
+      "dimension": 784,
+      "fold_accuracies": [
+        0.9735,
+        0.976,
+        0.9765,
+        0.9695,
+        0.9745
+      ],
+      "mean_cv_accuracy": 0.974,
+      "std_cv_accuracy": 0.0027838821814150034
+    },
+    {
+      "representation": "phi2_deskew",
+      "family": "SVC",
+      "params": {
+        "C": 10.0,
+        "gamma": "scale",
+        "kernel": "rbf"
+      },
+      "dimension": 784,
+      "fold_accuracies": [
+        0.9755,
+        0.9775,
+        0.9795,
+        0.971,
+        0.975
+      ],
+      "mean_cv_accuracy": 0.9757,
+      "std_cv_accuracy": 0.003174114049620802
+    },
+    {
+      "representation": "phi2_deskew",
+      "family": "SVC",
+      "params": {
+        "C": 30.0,
+        "gamma": "scale",
+        "kernel": "rbf"
+      },
+      "dimension": 784,
+      "fold_accuracies": [
+        0.976,
+        0.978,
+        0.979,
+        0.9715,
+        0.9745
+      ],
+      "mean_cv_accuracy": 0.9757999999999999,
+      "std_cv_accuracy": 0.002970690155502566
+    }
+  ]
+}

@@ -1,0 +1,287 @@
+[
+  {
+    "representation": "raw",
+    "family": "SVC",
+    "params": {
+      "C": 3.0,
+      "gamma": "scale",
+      "kernel": "rbf"
+    },
+    "dimension": 784,
+    "fold_accuracies": [
+      0.5,
+      0.5,
+      0.5,
+      0.5,
+      0.5
+    ],
+    "mean_cv_accuracy": 0.5,
+    "std_cv_accuracy": 0.0
+  },
+  {
+    "representation": "raw",
+    "family": "SVC",
+    "params": {
+      "C": 10.0,
+      "gamma": "scale",
+      "kernel": "rbf"
+    },
+    "dimension": 784,
+    "fold_accuracies": [
+      0.5,
+      0.5,
+      0.5,
+      0.5,
+      0.5
+    ],
+    "mean_cv_accuracy": 0.5,
+    "std_cv_accuracy": 0.0
+  },
+  {
+    "representation": "raw",
+    "family": "SVC",
+    "params": {
+      "C": 30.0,
+      "gamma": "scale",
+      "kernel": "rbf"
+    },
+    "dimension": 784,
+    "fold_accuracies": [
+      0.5,
+      0.5,
+      0.5,
+      0.5,
+      0.5
+    ],
+    "mean_cv_accuracy": 0.5,
+    "std_cv_accuracy": 0.0
+  },
+  {
+    "representation": "raw",
+    "family": "KNN",
+    "params": {
+      "n_neighbors": 3,
+      "weights": "distance",
+      "algorithm": "brute"
+    },
+    "dimension": 784,
+    "fold_accuracies": [
+      0.5,
+      0.5,
+      0.5,
+      0.5,
+      0.5
+    ],
+    "mean_cv_accuracy": 0.5,
+    "std_cv_accuracy": 0.0
+  },
+  {
+    "representation": "raw",
+    "family": "KNN",
+    "params": {
+      "n_neighbors": 5,
+      "weights": "distance",
+      "algorithm": "brute"
+    },
+    "dimension": 784,
+    "fold_accuracies": [
+      0.5,
+      0.5,
+      0.5,
+      0.5,
+      0.5
+    ],
+    "mean_cv_accuracy": 0.5,
+    "std_cv_accuracy": 0.0
+  },
+  {
+    "representation": "raw",
+    "family": "KNN",
+    "params": {
+      "n_neighbors": 7,
+      "weights": "distance",
+      "algorithm": "brute"
+    },
+    "dimension": 784,
+    "fold_accuracies": [
+      0.5,
+      0.5,
+      0.5,
+      0.5,
+      0.5
+    ],
+    "mean_cv_accuracy": 0.5,
+    "std_cv_accuracy": 0.0
+  },
+  {
+    "representation": "raw",
+    "family": "ExtraTrees",
+    "params": {
+      "n_estimators": 200,
+      "min_samples_leaf": 1,
+      "max_features": "sqrt"
+    },
+    "dimension": 784,
+    "fold_accuracies": [
+      0.5,
+      0.5,
+      0.5,
+      0.5,
+      0.5
+    ],
+    "mean_cv_accuracy": 0.5,
+    "std_cv_accuracy": 0.0
+  },
+  {
+    "representation": "raw",
+    "family": "ExtraTrees",
+    "params": {
+      "n_estimators": 200,
+      "min_samples_leaf": 2,
+      "max_features": "sqrt"
+    },
+    "dimension": 784,
+    "fold_accuracies": [
+      0.5,
+      0.5,
+      0.5,
+      0.5,
+      0.5
+    ],
+    "mean_cv_accuracy": 0.5,
+    "std_cv_accuracy": 0.0
+  },
+  {
+    "representation": "raw",
+    "family": "ExtraTrees",
+    "params": {
+      "n_estimators": 200,
+      "min_samples_leaf": 4,
+      "max_features": "sqrt"
+    },
+    "dimension": 784,
+    "fold_accuracies": [
+      0.5,
+      0.5,
+      0.5,
+      0.5,
+      0.5
+    ],
+    "mean_cv_accuracy": 0.5,
+    "std_cv_accuracy": 0.0
+  },
+  {
+    "representation": "phi1_pooling",
+    "family": "SVC",
+    "params": {
+      "C": 3.0,
+      "gamma": "scale",
+      "kernel": "rbf"
+    },
+    "dimension": 196,
+    "fold_accuracies": [
+      0.5,
+      0.5,
+      0.5,
+      0.5,
+      0.5
+    ],
+    "mean_cv_accuracy": 0.5,
+    "std_cv_accuracy": 0.0
+  },
+  {
+    "representation": "phi1_pooling",
+    "family": "SVC",
+    "params": {
+      "C": 10.0,
+      "gamma": "scale",
+      "kernel": "rbf"
+    },
+    "dimension": 196,
+    "fold_accuracies": [
+      0.5,
+      0.5,
+      0.5,
+      0.5,
+      0.5
+    ],
+    "mean_cv_accuracy": 0.5,
+    "std_cv_accuracy": 0.0
+  },
+  {
+    "representation": "phi1_pooling",
+    "family": "SVC",
+    "params": {
+      "C": 30.0,
+      "gamma": "scale",
+      "kernel": "rbf"
+    },
+    "dimension": 196,
+    "fold_accuracies": [
+      0.5,
+      0.5,
+      0.5,
+      0.5,
+      0.5
+    ],
+    "mean_cv_accuracy": 0.5,
+    "std_cv_accuracy": 0.0
+  },
+  {
+    "representation": "phi2_deskew",
+    "family": "SVC",
+    "params": {
+      "C": 3.0,
+      "gamma": "scale",
+      "kernel": "rbf"
+    },
+    "dimension": 784,
+    "fold_accuracies": [
+      0.5,
+      0.5,
+      0.5,
+      0.5,
+      0.5
+    ],
+    "mean_cv_accuracy": 0.5,
+    "std_cv_accuracy": 0.0
+  },
+  {
+    "representation": "phi2_deskew",
+    "family": "SVC",
+    "params": {
+      "C": 10.0,
+      "gamma": "scale",
+      "kernel": "rbf"
+    },
+    "dimension": 784,
+    "fold_accuracies": [
+      0.5,
+      0.5,
+      0.5,
+      0.5,
+      0.5
+    ],
+    "mean_cv_accuracy": 0.5,
+    "std_cv_accuracy": 0.0
+  },
+  {
+    "representation": "phi2_deskew",
+    "family": "SVC",
+    "params": {
+      "C": 30.0,
+      "gamma": "scale",
+      "kernel": "rbf"
+    },
+    "dimension": 784,
+    "fold_accuracies": [
+      0.5,
+      0.5,
+      0.5,
+      0.5,
+      0.5
+    ],
+    "mean_cv_accuracy": 0.5,
+    "std_cv_accuracy": 0.0
+  }
+]

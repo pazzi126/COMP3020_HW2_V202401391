@@ -1,0 +1,15 @@
+Numerical feature checks passed.
+Warmup winner: SVC, {'C': 3.0, 'gamma': 'scale', 'kernel': 'rbf'}
+Refitting final selection: {'representation': 'raw', 'family': 'SVC', 'params': {'C': 3.0, 'gamma': 'scale', 'kernel': 'rbf'}, 'dimension': 784, 'fold_accuracies': [0.5, 0.5, 0.5, 0.5, 0.5], 'mean_cv_accuracy': 0.5, 'std_cv_accuracy': 0.0}
+FINAL TEST ACCURACY: 100.0000%
+{
+  "purpose": "OUTPUT PLUMBING TEST ONLY. Two artificial images, STUBBED CV scores; NOT MNIST RESULTS.",
+  "checks": {
+    "predict": 1,
+    "fit": 1
+  },
+  "predictions_saved": 10000,
+  "selection_saved_before_predict": true,
+  "confusion_matrix_count": 10000,
+  "joblib_bundle_loads": true
+}

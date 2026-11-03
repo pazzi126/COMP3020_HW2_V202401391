@@ -1,0 +1,58 @@
+{
+  "status": "passed",
+  "full_mnist_run": "/workspace/COMP3020_HW2_V202401391/results/launches/20261103T115939_full_661/run_20261103T120001_917778Z_full_667",
+  "cv_fit_rows": 75,
+  "candidate_count": 15,
+  "folds": 5,
+  "each_fold_train": 8000,
+  "each_fold_validation": 2000,
+  "test_rows": 10000,
+  "test_correct": 9773,
+  "test_accuracy": 0.9773,
+  "source_matches_snapshot": true,
+  "csv_summary_consistent": true,
+  "saved_test_log_entries": 1,
+  "analysis_performed_no_fit_or_predict": true,
+  "top_confusions": [
+    [
+      16,
+      9,
+      4
+    ],
+    [
+      11,
+      7,
+      2
+    ],
+    [
+      11,
+      5,
+      3
+    ],
+    [
+      10,
+      4,
+      9
+    ],
+    [
+      8,
+      9,
+      7
+    ],
+    [
+      8,
+      9,
+      3
+    ],
+    [
+      8,
+      3,
+      2
+    ],
+    [
+      7,
+      7,
+      4
+    ]
+  ]
+}

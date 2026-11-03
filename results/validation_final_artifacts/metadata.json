@@ -1,0 +1,73 @@
+{
+  "seed": 202401391,
+  "mode": "full",
+  "training_examples": 10000,
+  "test_examples": 10000,
+  "folds": 5,
+  "jobs": 1,
+  "hyperparameters": {
+    "SVC": [
+      {
+        "C": 3.0,
+        "gamma": "scale",
+        "kernel": "rbf"
+      },
+      {
+        "C": 10.0,
+        "gamma": "scale",
+        "kernel": "rbf"
+      },
+      {
+        "C": 30.0,
+        "gamma": "scale",
+        "kernel": "rbf"
+      }
+    ],
+    "KNN": [
+      {
+        "n_neighbors": 3,
+        "weights": "distance",
+        "algorithm": "brute"
+      },
+      {
+        "n_neighbors": 5,
+        "weights": "distance",
+        "algorithm": "brute"
+      },
+      {
+        "n_neighbors": 7,
+        "weights": "distance",
+        "algorithm": "brute"
+      }
+    ],
+    "ExtraTrees": [
+      {
+        "n_estimators": 200,
+        "min_samples_leaf": 1,
+        "max_features": "sqrt"
+      },
+      {
+        "n_estimators": 200,
+        "min_samples_leaf": 2,
+        "max_features": "sqrt"
+      },
+      {
+        "n_estimators": 200,
+        "min_samples_leaf": 4,
+        "max_features": "sqrt"
+      }
+    ]
+  },
+  "python": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]",
+  "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+  "versions": {
+    "numpy": "2.3.5",
+    "scipy": "1.17.0",
+    "scikit-learn": "1.8.0",
+    "joblib": "1.5.3"
+  },
+  "source_sha256": "05cbc98c0ccdfd432a7e3ff69efcd8c99a8a40d735fedb00049243b8817a3332",
+  "training_pixels_sha256": "0593dba2075c3d5343b097841623f629530cdc349158dcd2929c39c7f12a9cd7",
+  "training_labels_sha256": "125c3072a1b36a58fb75e12d3b1b0a57123c67d102f8b7fdf4a2ed07b3914e2a",
+  "dataset_notice": "NOT MNIST: offline validation only; see results/README.md"
+}

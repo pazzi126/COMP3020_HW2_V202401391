@@ -1,0 +1,96 @@
+Results directory: results/launches/20261103T115939_full_661/run_20261103T120001_917778Z_full_667
+Numerical feature checks passed.
+raw            SVC        {'C': 3.0, 'gamma': 'scale', 'kernel': 'rbf'} fold=1 accuracy=0.975000 fit=2.65s predict=2.17s
+raw            SVC        {'C': 3.0, 'gamma': 'scale', 'kernel': 'rbf'} fold=2 accuracy=0.964000 fit=2.45s predict=2.52s
+raw            SVC        {'C': 3.0, 'gamma': 'scale', 'kernel': 'rbf'} fold=3 accuracy=0.976500 fit=2.64s predict=3.01s
+raw            SVC        {'C': 3.0, 'gamma': 'scale', 'kernel': 'rbf'} fold=4 accuracy=0.959500 fit=2.53s predict=2.23s
+raw            SVC        {'C': 3.0, 'gamma': 'scale', 'kernel': 'rbf'} fold=5 accuracy=0.964000 fit=2.80s predict=3.17s
+  Mean CV=0.967800; sample SD=0.007505
+raw            SVC        {'C': 10.0, 'gamma': 'scale', 'kernel': 'rbf'} fold=1 accuracy=0.975500 fit=2.82s predict=2.28s
+raw            SVC        {'C': 10.0, 'gamma': 'scale', 'kernel': 'rbf'} fold=2 accuracy=0.965500 fit=2.49s predict=2.06s
+raw            SVC        {'C': 10.0, 'gamma': 'scale', 'kernel': 'rbf'} fold=3 accuracy=0.977000 fit=2.77s predict=2.25s
+raw            SVC        {'C': 10.0, 'gamma': 'scale', 'kernel': 'rbf'} fold=4 accuracy=0.960000 fit=2.68s predict=2.24s
+raw            SVC        {'C': 10.0, 'gamma': 'scale', 'kernel': 'rbf'} fold=5 accuracy=0.964000 fit=2.47s predict=2.12s
+  Mean CV=0.968400; sample SD=0.007462
+raw            SVC        {'C': 30.0, 'gamma': 'scale', 'kernel': 'rbf'} fold=1 accuracy=0.975500 fit=2.72s predict=2.42s
+raw            SVC        {'C': 30.0, 'gamma': 'scale', 'kernel': 'rbf'} fold=2 accuracy=0.965500 fit=2.85s predict=2.42s
+raw            SVC        {'C': 30.0, 'gamma': 'scale', 'kernel': 'rbf'} fold=3 accuracy=0.976500 fit=2.99s predict=2.30s
+raw            SVC        {'C': 30.0, 'gamma': 'scale', 'kernel': 'rbf'} fold=4 accuracy=0.960500 fit=2.83s predict=2.73s
+raw            SVC        {'C': 30.0, 'gamma': 'scale', 'kernel': 'rbf'} fold=5 accuracy=0.964000 fit=3.20s predict=2.53s
+  Mean CV=0.968400; sample SD=0.007180
+raw            KNN        {'n_neighbors': 3, 'weights': 'distance', 'algorithm': 'brute'} fold=1 accuracy=0.951500 fit=0.01s predict=0.28s
+raw            KNN        {'n_neighbors': 3, 'weights': 'distance', 'algorithm': 'brute'} fold=2 accuracy=0.955000 fit=0.01s predict=0.28s
+raw            KNN        {'n_neighbors': 3, 'weights': 'distance', 'algorithm': 'brute'} fold=3 accuracy=0.959000 fit=0.01s predict=0.27s
+raw            KNN        {'n_neighbors': 3, 'weights': 'distance', 'algorithm': 'brute'} fold=4 accuracy=0.937500 fit=0.01s predict=0.29s
+raw            KNN        {'n_neighbors': 3, 'weights': 'distance', 'algorithm': 'brute'} fold=5 accuracy=0.941500 fit=0.01s predict=0.27s
+  Mean CV=0.948900; sample SD=0.009093
+raw            KNN        {'n_neighbors': 5, 'weights': 'distance', 'algorithm': 'brute'} fold=1 accuracy=0.951500 fit=0.01s predict=0.27s
+raw            KNN        {'n_neighbors': 5, 'weights': 'distance', 'algorithm': 'brute'} fold=2 accuracy=0.952000 fit=0.01s predict=0.27s
+raw            KNN        {'n_neighbors': 5, 'weights': 'distance', 'algorithm': 'brute'} fold=3 accuracy=0.959000 fit=0.01s predict=0.27s
+raw            KNN        {'n_neighbors': 5, 'weights': 'distance', 'algorithm': 'brute'} fold=4 accuracy=0.937000 fit=0.01s predict=0.27s
+raw            KNN        {'n_neighbors': 5, 'weights': 'distance', 'algorithm': 'brute'} fold=5 accuracy=0.942500 fit=0.01s predict=0.27s
+  Mean CV=0.948400; sample SD=0.008656
+raw            KNN        {'n_neighbors': 7, 'weights': 'distance', 'algorithm': 'brute'} fold=1 accuracy=0.952500 fit=0.01s predict=0.27s
+raw            KNN        {'n_neighbors': 7, 'weights': 'distance', 'algorithm': 'brute'} fold=2 accuracy=0.950500 fit=0.01s predict=0.26s
+raw            KNN        {'n_neighbors': 7, 'weights': 'distance', 'algorithm': 'brute'} fold=3 accuracy=0.956000 fit=0.01s predict=0.24s
+raw            KNN        {'n_neighbors': 7, 'weights': 'distance', 'algorithm': 'brute'} fold=4 accuracy=0.932000 fit=0.01s predict=0.24s
+raw            KNN        {'n_neighbors': 7, 'weights': 'distance', 'algorithm': 'brute'} fold=5 accuracy=0.941000 fit=0.01s predict=0.26s
+  Mean CV=0.946400; sample SD=0.009781
+raw            ExtraTrees {'n_estimators': 200, 'min_samples_leaf': 1, 'max_features': 'sqrt'} fold=1 accuracy=0.961500 fit=1.46s predict=0.06s
+raw            ExtraTrees {'n_estimators': 200, 'min_samples_leaf': 1, 'max_features': 'sqrt'} fold=2 accuracy=0.955500 fit=1.54s predict=0.05s
+raw            ExtraTrees {'n_estimators': 200, 'min_samples_leaf': 1, 'max_features': 'sqrt'} fold=3 accuracy=0.954500 fit=1.41s predict=0.06s
+raw            ExtraTrees {'n_estimators': 200, 'min_samples_leaf': 1, 'max_features': 'sqrt'} fold=4 accuracy=0.941500 fit=1.41s predict=0.06s
+raw            ExtraTrees {'n_estimators': 200, 'min_samples_leaf': 1, 'max_features': 'sqrt'} fold=5 accuracy=0.952500 fit=1.41s predict=0.05s
+  Mean CV=0.953100; sample SD=0.007301
+raw            ExtraTrees {'n_estimators': 200, 'min_samples_leaf': 2, 'max_features': 'sqrt'} fold=1 accuracy=0.958000 fit=1.33s predict=0.05s
+raw            ExtraTrees {'n_estimators': 200, 'min_samples_leaf': 2, 'max_features': 'sqrt'} fold=2 accuracy=0.951500 fit=1.37s predict=0.05s
+raw            ExtraTrees {'n_estimators': 200, 'min_samples_leaf': 2, 'max_features': 'sqrt'} fold=3 accuracy=0.954500 fit=1.32s predict=0.06s
+raw            ExtraTrees {'n_estimators': 200, 'min_samples_leaf': 2, 'max_features': 'sqrt'} fold=4 accuracy=0.938000 fit=1.32s predict=0.05s
+raw            ExtraTrees {'n_estimators': 200, 'min_samples_leaf': 2, 'max_features': 'sqrt'} fold=5 accuracy=0.947000 fit=1.18s predict=0.04s
+  Mean CV=0.949800; sample SD=0.007735
+raw            ExtraTrees {'n_estimators': 200, 'min_samples_leaf': 4, 'max_features': 'sqrt'} fold=1 accuracy=0.952500 fit=1.08s predict=0.05s
+raw            ExtraTrees {'n_estimators': 200, 'min_samples_leaf': 4, 'max_features': 'sqrt'} fold=2 accuracy=0.942000 fit=1.16s predict=0.06s
+raw            ExtraTrees {'n_estimators': 200, 'min_samples_leaf': 4, 'max_features': 'sqrt'} fold=3 accuracy=0.946500 fit=1.19s predict=0.04s
+raw            ExtraTrees {'n_estimators': 200, 'min_samples_leaf': 4, 'max_features': 'sqrt'} fold=4 accuracy=0.931500 fit=1.21s predict=0.04s
+raw            ExtraTrees {'n_estimators': 200, 'min_samples_leaf': 4, 'max_features': 'sqrt'} fold=5 accuracy=0.943000 fit=1.27s predict=0.06s
+  Mean CV=0.943100; sample SD=0.007676
+Warmup winner: SVC, {'C': 10.0, 'gamma': 'scale', 'kernel': 'rbf'}
+phi1_pooling   SVC        {'C': 3.0, 'gamma': 'scale', 'kernel': 'rbf'} fold=1 accuracy=0.973000 fit=0.83s predict=0.66s
+phi1_pooling   SVC        {'C': 3.0, 'gamma': 'scale', 'kernel': 'rbf'} fold=2 accuracy=0.970500 fit=0.89s predict=0.61s
+phi1_pooling   SVC        {'C': 3.0, 'gamma': 'scale', 'kernel': 'rbf'} fold=3 accuracy=0.974500 fit=0.78s predict=0.60s
+phi1_pooling   SVC        {'C': 3.0, 'gamma': 'scale', 'kernel': 'rbf'} fold=4 accuracy=0.963500 fit=0.70s predict=0.60s
+phi1_pooling   SVC        {'C': 3.0, 'gamma': 'scale', 'kernel': 'rbf'} fold=5 accuracy=0.963500 fit=0.73s predict=0.63s
+  Mean CV=0.969000; sample SD=0.005220
+phi1_pooling   SVC        {'C': 10.0, 'gamma': 'scale', 'kernel': 'rbf'} fold=1 accuracy=0.974500 fit=0.76s predict=0.64s
+phi1_pooling   SVC        {'C': 10.0, 'gamma': 'scale', 'kernel': 'rbf'} fold=2 accuracy=0.968500 fit=0.77s predict=0.65s
+phi1_pooling   SVC        {'C': 10.0, 'gamma': 'scale', 'kernel': 'rbf'} fold=3 accuracy=0.974500 fit=0.76s predict=0.64s
+phi1_pooling   SVC        {'C': 10.0, 'gamma': 'scale', 'kernel': 'rbf'} fold=4 accuracy=0.965500 fit=0.78s predict=0.68s
+phi1_pooling   SVC        {'C': 10.0, 'gamma': 'scale', 'kernel': 'rbf'} fold=5 accuracy=0.965000 fit=0.84s predict=0.64s
+  Mean CV=0.969600; sample SD=0.004669
+phi1_pooling   SVC        {'C': 30.0, 'gamma': 'scale', 'kernel': 'rbf'} fold=1 accuracy=0.974500 fit=0.80s predict=0.66s
+phi1_pooling   SVC        {'C': 30.0, 'gamma': 'scale', 'kernel': 'rbf'} fold=2 accuracy=0.969000 fit=0.75s predict=0.63s
+phi1_pooling   SVC        {'C': 30.0, 'gamma': 'scale', 'kernel': 'rbf'} fold=3 accuracy=0.975000 fit=0.76s predict=0.64s
+phi1_pooling   SVC        {'C': 30.0, 'gamma': 'scale', 'kernel': 'rbf'} fold=4 accuracy=0.964500 fit=0.77s predict=0.62s
+phi1_pooling   SVC        {'C': 30.0, 'gamma': 'scale', 'kernel': 'rbf'} fold=5 accuracy=0.966000 fit=0.76s predict=0.65s
+  Mean CV=0.969800; sample SD=0.004804
+phi2_deskew    SVC        {'C': 3.0, 'gamma': 'scale', 'kernel': 'rbf'} fold=1 accuracy=0.973500 fit=1.88s predict=1.67s
+phi2_deskew    SVC        {'C': 3.0, 'gamma': 'scale', 'kernel': 'rbf'} fold=2 accuracy=0.976000 fit=1.84s predict=1.31s
+phi2_deskew    SVC        {'C': 3.0, 'gamma': 'scale', 'kernel': 'rbf'} fold=3 accuracy=0.976500 fit=1.91s predict=1.51s
+phi2_deskew    SVC        {'C': 3.0, 'gamma': 'scale', 'kernel': 'rbf'} fold=4 accuracy=0.969500 fit=1.86s predict=1.45s
+phi2_deskew    SVC        {'C': 3.0, 'gamma': 'scale', 'kernel': 'rbf'} fold=5 accuracy=0.974500 fit=1.69s predict=1.57s
+  Mean CV=0.974000; sample SD=0.002784
+phi2_deskew    SVC        {'C': 10.0, 'gamma': 'scale', 'kernel': 'rbf'} fold=1 accuracy=0.975500 fit=1.92s predict=1.48s
+phi2_deskew    SVC        {'C': 10.0, 'gamma': 'scale', 'kernel': 'rbf'} fold=2 accuracy=0.977500 fit=2.13s predict=1.68s
+phi2_deskew    SVC        {'C': 10.0, 'gamma': 'scale', 'kernel': 'rbf'} fold=3 accuracy=0.979500 fit=2.00s predict=1.47s
+phi2_deskew    SVC        {'C': 10.0, 'gamma': 'scale', 'kernel': 'rbf'} fold=4 accuracy=0.971000 fit=1.78s predict=1.69s
+phi2_deskew    SVC        {'C': 10.0, 'gamma': 'scale', 'kernel': 'rbf'} fold=5 accuracy=0.975000 fit=1.96s predict=1.53s
+  Mean CV=0.975700; sample SD=0.003174
+phi2_deskew    SVC        {'C': 30.0, 'gamma': 'scale', 'kernel': 'rbf'} fold=1 accuracy=0.976000 fit=1.78s predict=1.63s
+phi2_deskew    SVC        {'C': 30.0, 'gamma': 'scale', 'kernel': 'rbf'} fold=2 accuracy=0.978000 fit=1.81s predict=1.50s
+phi2_deskew    SVC        {'C': 30.0, 'gamma': 'scale', 'kernel': 'rbf'} fold=3 accuracy=0.979000 fit=1.83s predict=1.52s
+phi2_deskew    SVC        {'C': 30.0, 'gamma': 'scale', 'kernel': 'rbf'} fold=4 accuracy=0.971500 fit=1.96s predict=1.42s
+phi2_deskew    SVC        {'C': 30.0, 'gamma': 'scale', 'kernel': 'rbf'} fold=5 accuracy=0.974500 fit=2.04s predict=1.62s
+  Mean CV=0.975800; sample SD=0.002971
+Refitting final selection: {'representation': 'phi2_deskew', 'family': 'SVC', 'params': {'C': 30.0, 'gamma': 'scale', 'kernel': 'rbf'}, 'dimension': 784, 'fold_accuracies': [0.976, 0.978, 0.979, 0.9715, 0.9745], 'mean_cv_accuracy': 0.9757999999999999, 'std_cv_accuracy': 0.002970690155502566}
+FINAL TEST ACCURACY: 97.7300%
+Completed in 187.9s; saved to results/launches/20261103T115939_full_661/run_20261103T120001_917778Z_full_667

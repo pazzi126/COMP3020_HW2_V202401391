@@ -1,0 +1,119 @@
+6 Programming (17 points)
+To understand model selection using cross-validation, we will classify handwritten digits from
+the MNIST dataset. We will use the first 10 000 examples for training and the final 10 000
+examples for testing. Do not modify the code below. Only add your code after it.
+from sklearn.datasets import fetch_openml
+print("Loading MNIST...")
+X, y = fetch_openml("mnist_784", version=1, as_frame=False, return_X_y=True)
+print(f"Loaded {len(X)} examples with {X.shape[1]} features.")
+X_train, X_test = X[:60000], X[60000:]
+y_train, y_test = y[:60000], y[60000:]
+X_train, y_train = (X_train[:10000], y_train[:10000]) # reduce dataset size
+print(f"Using {len(X_train)} for cross-validation and {len(X_test)} for test.")
+6.1 Warmup
+Implement 5- or 10-fold cross-validation that tunes at least 3 estimators of your choice (for
+example, Logistic Regression, Naive Bayes, Decision Tree, etc.). For each estimator, select at
+least one hyperparameter and three candidate hyperparameter values for tuning. You may use
+any estimator provided by sklearn, but only sklearn estimators are allowed.
+For each fold, train a new estimator and record the validation accuracy. The best estimator
+is the one with the best mean cross-validation accuracy. Using the best hyperparameter and
+corresponding estimator, refit on all 10 000 training examples and evaluate the best estimator
+on the test set. As you may have guessed, using the built-in GridSearchCV and similar classes
+is not allowed. Feel free to explore various hyperparameter search approaches, such as random
+search, etc.
+6.2 Hand-Crafted Feature Engineering (4 points)
+So far, we have used the raw pixel values of MNIST images as input features. However, the
+choice of feature transformation ϕ can significantly affect the performance of a classifier. In this
+task, you will explore whether manually designed features can improve classification accuracy.
+Each MNIST image consists of 28 × 28 pixels, represented as a vector x ∈ R784. We can
+transform the original features into a new representation using a feature mapping function:
+ϕ : R784 → Rd.
+Part A: Designing Feature Transformations
+Design and implement at least two different feature transformations, ϕ1(x) and ϕ2(x),
+that capture potentially useful characteristics of handwritten digits.
+Below are several techniques you may consider.
+VinUniversity|CECS Date: 2026-11-19 7
+COMP3020: Machine Learning
+1. Average Pixel Intensity (Easy)
+Different digits occupy different amounts of space in an image. For example, the digit 1
+typically contains fewer foreground pixels than the digit 8.
+Compute the average pixel intensity:
+ϕintensity(x) = 1
+784
+784∑︂
+i=1
+xi.
+This feature summarizes the overall amount of ink in the image, assuming larger pixel
+values represent foreground strokes.
+2. Horizontal and Vertical Symmetry
+Some digits (e.g., 0 and 8) tend to be more symmetric than others (e.g., 2 and 7).
+One way to measure symmetry across the vertical axis is to compare the original image
+with its horizontally flipped version:
+ϕsymmetry(x) = − 1
+784
+784∑︂
+i=1
+|xi − xflip
+i |,
+where xflip represents the horizontally flipped image. Larger values indicate greater sym-
+metry.
+Extend this approach to measure symmetry across the horizontal axis.
+3. Spatial Pixel Distribution
+Instead of computing the average intensity over the entire image, divide the image into
+several regions (e.g., a 4 × 4 grid).
+For each region, compute its average pixel intensity. This produces a feature vector rep-
+resenting where the digit’s strokes are concentrated, rather than simply measuring
+their total intensity. This is a spatial extension of Technique 1.
+Part B: Evaluation and Analysis
+Using the best estimator from the previous task:
+1. Compare the classification performance using:
+(a) The original 784 pixel features.
+(b) Your first feature transformation ϕ1(x).
+(c) Your second feature transformation ϕ2(x).
+You may concatenate your engineered features with the original features.
+2. Use the same cross-validation folds to evaluate different representations. You may tune
+the estimator’s hyperparameters separately for each representation.
+VinUniversity|CECS Date: 2026-11-19 8
+COMP3020: Machine Learning
+3. Report the mean cross-validation accuracy for each representation and the dimensionality
+of the resulting feature vectors.
+4. Explain what information each transformation captures and why you expect it to improve
+classification accuracy.
+5. Did the engineered features improve performance? Explain your observations.
+Consider whether the additional features provide useful information or introduce redun-
+dancy and noise.
+Important: You must implement your feature transformations yourself using basic numerical
+operations (e.g., NumPy). Calling existing feature extraction functions, such as skimage.feature.hog(),
+or using pretrained feature extractors is not allowed. The test set must not be used to design or
+select feature transformations. Use cross-validation for feature selection and model selection,
+and evaluate your final selected model on the test set only once.
+Submission Requirements
+Submit your completed implementation (1 file only) together with the assignment (or add it
+directly to the assignment) and report the following:
+• All hyperparameter configurations. Documenting these directly in the code is also allowed.
+• Each fold accuracy and the mean cross-validation accuracy for all estimators.
+• The best hyperparameter, estimator, and the test accuracy.
+• Decisions you made during the development process, for example, estimator selections,
+handling feature scaling, etc. You will surely need to make many decisions during the
+development process, so we would like to know them.
+While we allow great flexibility in this problem, the cross-validation pipeline is relatively stan-
+dard, so there is an overall minimal structure that we expect you to implement correctly. We
+will randomly select a subset of the submission to reproduce, so make sure your code reproduces
+your reported results. We do not ask for complete reproduction, but a high discrepancy will
+affect your grading.
+Grading Rubric
+You are expected to reach at least 96% accuracy on the test set. The top 10 highest-performing
+submissions, given reproducible results and a semantically correct implementation, will receive
+10 bonus points for this homework. The total points for this homework are capped at 100.
+VinUniversity|CECS Date: 2026-11-19 9
+COMP3020: Machine Learning
+Component Points
+Correct, concise, and reproducible implementation of the cross-
+validation pipelines (e.g., no test leakage,...)
+5
+Clear report of fold accuracy and mean cross-validation accuracy, best
+hyperparameter and estimator, and test accuracy
+3
+Detailed decisions and rationales behind the implementation 5
+Good performance (passed minimum threshold) 4
+Total 17

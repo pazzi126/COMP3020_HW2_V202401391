@@ -1,0 +1,13 @@
+{
+  "dataset": "sklearn load_digits resized and padded, SYNTHETIC VALIDATION ONLY; not MNIST",
+  "checks_passed": [
+    "unchanged assignment prefix",
+    "feature numerical invariants including deskew sign",
+    "75 fold fits: 3 families x 3 candidates plus 2 representations x 3 candidates",
+    "same saved 5 folds",
+    "test access forbidden in smoke",
+    "15 candidate summaries",
+    "CSV JSON Markdown source snapshot and status outputs"
+  ],
+  "run_directory": "/workspace/COMP3020_HW2_V202401391/results/validation_synthetic/run_20261103T113917_524762Z_smoke_957"
+}

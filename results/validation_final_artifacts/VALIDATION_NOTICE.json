@@ -1,0 +1,11 @@
+{
+  "purpose": "OUTPUT PLUMBING TEST ONLY. Two artificial images, STUBBED CV scores; NOT MNIST RESULTS.",
+  "checks": {
+    "predict": 1,
+    "fit": 1
+  },
+  "predictions_saved": 10000,
+  "selection_saved_before_predict": true,
+  "confusion_matrix_count": 10000,
+  "joblib_bundle_loads": true
+}
